@@ -176,84 +176,43 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 </section>
 
   <section class="section" id="form">
-<h2>Loan Inquiry Form</h2>
+  <h2>Loan Inquiry Form</h2>
 
-<form class="loan-form" method="POST">
+  <form id="loanForm" class="loan-form">
+    <input type="text" name="name" placeholder="Full Name *" required>
+    <input type="tel" name="mobile" placeholder="Mobile *" required>
+    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="pincode" placeholder="Pincode *" required>
 
-<h3>Basic Details</h3>
-<input name="Name" placeholder="Full Name *" required>
-<input name="Mobile" placeholder="Mobile *" required>
-<input name="Email" type="email" placeholder="Email *" required>
-<input name="Pincode" placeholder="Pincode *" required>
+    <select name="employment" required>
+      <option value="">Employment Type</option>
+      <option>Salaried</option>
+      <option>Self Employed</option>
+    </select>
 
-<select name="Employment" required>
-  <option value="">Employment Type *</option>
-  <option>Salaried</option>
-  <option>Self Employed</option>
-  <option>Business</option>
-  <option>Other</option>
-</select>
+    <select name="loan" required>
+      <option value="">Loan Type</option>
+      <option>Personal Loan</option>
+      <option>Business Loan</option>
+      <option>Home Loan</option>
+    </select>
 
-<h3>KYC</h3>
-<input name="KYC Document 1" placeholder="KYC Doc Name (Aadhaar/PAN)">
-<input name="KYC Document 2" placeholder="KYC Doc Name">
+    <input type="number" name="amount" placeholder="Loan Amount *" required>
+    <textarea name="extra" placeholder="Extra Message"></textarea>
 
-<select name="CKYC" required>
-  <option value="">Do you have CKYC? *</option>
-  <option>Yes</option>
-  <option>No</option>
-</select>
+    <button type="submit">Submit</button>
+  </form>
 
-<h3>Personal</h3>
-<input name="DOB" type="date" required>
-<input name="Age Years" placeholder="Age (Years) *" required>
-<input name="Age Months" placeholder="Age (Months) *" required>
+  <!-- THANK YOU -->
+  <div id="thankyou" style="display:none;">
+    <h3>Thank You 🙏</h3>
+    <p>We will contact you shortly.</p>
 
-<select name="Gender" required>
-  <option value="">Gender *</option>
-  <option>Male</option>
-  <option>Female</option>
-  <option>Other</option>
-</select>
-
-<select name="Religion" required>
-  <option value="">Religion *</option>
-  <option>Hindu</option>
-  <option>Muslim</option>
-  <option>Sikh</option>
-  <option>Christian</option>
-  <option>Other</option>
-</select>
-
-<h3>Loan Details</h3>
-<select name="Loan Type" required>
-  <option value="">Loan Type *</option>
-  <option>Home Loan</option>
-  <option>Personal Loan</option>
-  <option>Business Loan</option>
-  <option>Car Loan</option>
-  <option>Mortgage Loan</option>
-  <option>OD/CC Limit</option>
-  <option>KCC Loan</option>
-</select>
-
-<input name="Amount" placeholder="Required Amount *" required>
-<textarea name="Extra Details" placeholder="Other details (optional)"></textarea>
-
-<button type="submit">Submit Inquiry</button>
-</form>
-
-<!-- THANK YOU -->
-<div id="thankyou" style="display:none;text-align:center">
-  <h2>✅ Thank You!</h2>
-  <p>Your inquiry has been submitted successfully.</p>
-
-  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">
-    📍 Visit Our Office
-  </a>
-</div>
+    <a href="https://maps.google.com/?q=YOUR+OFFICE+ADDRESS" target="_blank">
+      📍 Visit Our Office
+    </a>
+  </div>
 </section>
-
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
