@@ -175,42 +175,82 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
   </div>
 </section>
 
-<section class="section" id="form">
+  <section class="section" id="form">
 <h2>Loan Inquiry Form</h2>
 
-<form class="loan-form" id="loanForm">
-<input name="name" placeholder="Full Name *" required>
-<input name="mobile" placeholder="Mobile *" required>
-<input name="email" type="email" placeholder="Email *" required>
-<input name="pincode" placeholder="Pincode *" required>
+<form class="loan-form" method="POST">
 
-<select name="employment" required>
-<option value="">Employment Type *</option>
-<option>Salaried</option>
-<option>Self Employed</option>
-<option>Business</option>
+<h3>Basic Details</h3>
+<input name="Name" placeholder="Full Name *" required>
+<input name="Mobile" placeholder="Mobile *" required>
+<input name="Email" type="email" placeholder="Email *" required>
+<input name="Pincode" placeholder="Pincode *" required>
+
+<select name="Employment" required>
+  <option value="">Employment Type *</option>
+  <option>Salaried</option>
+  <option>Self Employed</option>
+  <option>Business</option>
+  <option>Other</option>
 </select>
 
-<select name="loan" required>
-<option value="">Loan Type *</option>
-<option>Home Loan</option>
-<option>Personal Loan</option>
-<option>Business Loan</option>
-<option>Car Loan</option>
-<option>Mortgage Loan</option>
-<option>OD / CC</option>
+<h3>KYC</h3>
+<input name="KYC Document 1" placeholder="KYC Doc Name (Aadhaar/PAN)">
+<input name="KYC Document 2" placeholder="KYC Doc Name">
+
+<select name="CKYC" required>
+  <option value="">Do you have CKYC? *</option>
+  <option>Yes</option>
+  <option>No</option>
 </select>
 
-<input name="amount" placeholder="Required Amount *" required>
-<textarea name="extra" placeholder="Other details"></textarea>
+<h3>Personal</h3>
+<input name="DOB" type="date" required>
+<input name="Age Years" placeholder="Age (Years) *" required>
+<input name="Age Months" placeholder="Age (Months) *" required>
+
+<select name="Gender" required>
+  <option value="">Gender *</option>
+  <option>Male</option>
+  <option>Female</option>
+  <option>Other</option>
+</select>
+
+<select name="Religion" required>
+  <option value="">Religion *</option>
+  <option>Hindu</option>
+  <option>Muslim</option>
+  <option>Sikh</option>
+  <option>Christian</option>
+  <option>Other</option>
+</select>
+
+<h3>Loan Details</h3>
+<select name="Loan Type" required>
+  <option value="">Loan Type *</option>
+  <option>Home Loan</option>
+  <option>Personal Loan</option>
+  <option>Business Loan</option>
+  <option>Car Loan</option>
+  <option>Mortgage Loan</option>
+  <option>OD/CC Limit</option>
+  <option>KCC Loan</option>
+</select>
+
+<input name="Amount" placeholder="Required Amount *" required>
+<textarea name="Extra Details" placeholder="Other details (optional)"></textarea>
 
 <button type="submit">Submit Inquiry</button>
 </form>
 
-<div class="thankyou-box" id="thankyou">
+<!-- THANK YOU -->
+<div id="thankyou" style="display:none;text-align:center">
   <h2>✅ Thank You!</h2>
-  <p>Our team will contact you soon.</p>
-  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">📍 Visit Our Office</a>
+  <p>Your inquiry has been submitted successfully.</p>
+
+  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">
+    📍 Visit Our Office
+  </a>
 </div>
 </section>
 
@@ -232,32 +272,47 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 <a class="whatsapp-float" href="https://wa.me/919993182219" target="_blank">💬</a>
 
 <script>
+/* ================= WHATSAPP BUTTON ================= */
 function sendWhatsApp(type){
-  window.open("https://wa.me/919993182219?text=Hello, I want "+type,"_blank");
+  window.open(
+    "https://wa.me/919993182219?text=Hello, I want " + encodeURIComponent(type),
+    "_blank"
+  );
 }
 
-/* GOOGLE FORM SUBMIT */
-document.getElementById("loanForm").addEventListener("submit",function(e){
- e.preventDefault();
- const f=e.target;
+/* ================= LOAN FORM SUBMIT ================= */
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbzBoKKY6PsmCZ9n9RO6QtjYGVqLucy58wa6WqWsLOcmqBFk6J6l1n49UpsjAl5QWhNZ/exec";
 
- const url =
- "https://docs.google.com/forms/d/e/FORM_ID/formResponse?"+
- "entry.111111="+f.name.value+
- "&entry.222222="+f.mobile.value+
- "&entry.333333="+f.email.value+
- "&entry.444444="+f.pincode.value+
- "&entry.555555="+f.employment.value+
- "&entry.666666="+f.loan.value+
- "&entry.777777="+f.amount.value+
- "&entry.888888="+f.extra.value;
+const form = document.getElementById("loanForm");
 
- fetch(url,{mode:"no-cors"}).then(()=>{
-   f.style.display="none";
-   document.getElementById("thankyou").style.display="block";
-   window.open("https://wa.me/919993182219?text=New%20Loan%20Inquiry","_blank");
- });
-});
+if(form){
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(() => {
+      // form hide
+      form.style.display = "none";
+
+      // thank you show
+      document.getElementById("thankyou").style.display = "block";
+
+      // auto whatsapp notify (OWNER)
+      window.open(
+        "https://wa.me/919993182219?text=New%20Loan%20Inquiry%20Received%20from%20Website",
+        "_blank"
+      );
+    })
+    .catch(err => {
+      alert("Something went wrong. Please try again.");
+      console.error(err);
+    });
+  });
+}
 </script>
 
 </body>
