@@ -198,17 +198,27 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
 <section class="section" id="form">
   <h2>Loan Inquiry Form</h2>
 
-  <form class="loan-form"  action="https://formspree.io/f/xykprozr"
-  method="POST"
-  enctype="multipart/form-data"
+  <form
+    class="loan-form"
+    action="https://formspree.io/f/xykprozr"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+
+    <!-- Thank You Redirect -->
+    <input type="hidden" name="_redirect" value="thankyou.html">
 
     <h3>Basic Details</h3>
-    <input id="name" placeholder="Full Name *" required>
-    <input id="mobile" placeholder="Mobile *" required>
-    <input id="email" type="email" placeholder="Email *" required>
-    <input id="pincode" placeholder="Pincode *" required>
 
-    <select id="employment" required>
+    <input id="name" name="name" placeholder="Full Name *" required>
+
+    <input id="mobile" name="mobile" placeholder="Mobile *" required>
+
+    <input id="email" name="email" type="email" placeholder="Email *" required>
+
+    <input id="pincode" name="pincode" placeholder="Pincode *" required>
+
+    <select id="employment" name="employment" required>
       <option value="">Employment Type *</option>
       <option>Salaried</option>
       <option>Self Employed</option>
@@ -217,28 +227,48 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     </select>
 
     <h3>KYC</h3>
-    <input type="file" accept="image/*,application/pdf">
-    <input type="file" accept="image/*,application/pdf">
 
-    <select id="ckyc" required>
+    <input
+      type="file"
+      name="kyc_document_1"
+      accept="image/*,application/pdf"
+      required
+    >
+
+    <input
+      type="file"
+      name="kyc_document_2"
+      accept="image/*,application/pdf"
+    >
+
+    <select id="ckyc" name="ckyc" required>
       <option value="">Do you have CKYC? *</option>
       <option>Yes</option>
       <option>No</option>
     </select>
 
     <h3>Personal</h3>
-    <input id="dob" placeholder="Date of birth *" type="date" required>
-    <input id="ageY" placeholder="Age (Years) *" required>
-    <input id="ageM" placeholder="Age (Months) *" required>
 
-    <select id="gender" required>
+    <input
+      id="dob"
+      name="dob"
+      type="date"
+      placeholder="Date of birth *"
+      required
+    >
+
+    <input id="ageY" name="age_years" placeholder="Age (Years) *" required>
+
+    <input id="ageM" name="age_months" placeholder="Age (Months) *" required>
+
+    <select id="gender" name="gender" required>
       <option value="">Gender *</option>
       <option>Male</option>
       <option>Female</option>
       <option>Other</option>
     </select>
 
-    <select id="religion" required>
+    <select id="religion" name="religion" required>
       <option value="">Religion *</option>
       <option>Hindu</option>
       <option>Muslim</option>
@@ -248,7 +278,8 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     </select>
 
     <h3>Loan Details</h3>
-    <select id="loanType" required>
+
+    <select id="loanType" name="loan_type" required>
       <option value="">Loan Type *</option>
       <option>Home Loan</option>
       <option>Personal Loan</option>
@@ -256,15 +287,25 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
       <option>Car Loan</option>
       <option>Mortgage Loan</option>
       <option>OD/CC Limit</option>
-      <option>Kcc loan</option>
+      <option>KCC Loan</option>
     </select>
 
-    <input id="amount" placeholder="Required Amount *" required>
-    <textarea id="extra" placeholder="Other details (optional)"></textarea>
+    <input
+      id="amount"
+      name="amount"
+      placeholder="Required Amount *"
+      required
+    >
+
+    <textarea
+      id="extra"
+      name="extra_details"
+      placeholder="Other details (optional)"
+    ></textarea>
 
     <button type="submit">Submit Inquiry</button>
   </form>
-</section>
+</section>  
 
 <footer class="footer" id="contact">
   <div class="footer-grid">
