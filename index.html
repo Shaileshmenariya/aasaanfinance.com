@@ -77,25 +77,59 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 @media(max-width:992px){.loan-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.loan-grid{grid-template-columns:1fr}}
 
-/* FORM */
-.form{
-  max-width:900px;margin:auto;
+/* ===== FORM ===== */
+.loan-form{
+  max-width:900px;
+  margin:auto;
   background:#162447;
-  padding:30px;border-radius:16px
-}
-.form input,
-.form select,
-.form textarea{
-  width:100%;padding:12px;margin-bottom:12px;
-  border-radius:8px;border:none
-}
-.form textarea{resize:none;height:90px}
-.form button{
-  width:100%;padding:14px;
-  background:#22c55e;border:none;
-  border-radius:10px;font-weight:700;cursor:pointer
+  padding:30px;
+  border-radius:16px;
 }
 
+.loan-form h3{
+  margin:25px 0 10px;
+  color:#22c55e;
+}
+
+.loan-form input,
+.loan-form select,
+.loan-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  font-size:15px;
+}
+
+.loan-form textarea{
+  resize:none;
+  height:90px;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.loan-form button{
+  width:100%;
+  padding:14px;
+  background:#22c55e;
+  color:#000;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.loan-form button:hover{
+  background:#16a34a;
+}
+
+.loan-form button:disabled{
+  background:#94a3b8;
+  cursor:not-allowed;
+}
 /* THANK YOU */
 .thankyou-box{
   display:none;text-align:center;
@@ -245,7 +279,16 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
     <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
-  
+  <div class="thankyou-box">
+  <h1>Thank You 🙏</h1>
+  <p>Your inquiry has been submitted successfully.</p>
+
+  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">
+    📍 Visit Our Office
+  </a><br>
+
+  <a href="index.html">⬅ Back to Home</a>
+</div>
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
@@ -274,68 +317,22 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 <a class="whatsapp-float" href="https://wa.me/919993182219" target="_blank">💬</a>
 
 <script>
-/* ================= WHATSAPP BUTTON ================= */
-function sendWhatsApp(type){
-  window.open(
-    "https://wa.me/919993182219?text=Hello, I want " + encodeURIComponent(type),
-    "_blank"
-  );
-}
-
-/* ================= LOAN FORM SUBMIT ================= */
-const scriptURL =
-"https://script.google.com/macros/s/AKfycbxZlRGB_5Xd3tlMyN1mpyMVuICYowW34YBLRmGUQMK3wiw91qJBRK43jhdOkAFYhCku/exec";
-
 const form = document.getElementById("loanForm");
+const btn = document.getElementById("submitBtn");
 
-if(form){
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    fetch(scriptURL, {
-      method: "POST",
-      body: new FormData(form)
-    })
-    .then(() => {
-      // form hide
-      form.style.display = "none";
-
-      // thank you show
-      document.getElementById("thankyou").style.display = "block";
-
-      // auto whatsapp notify (OWNER)
-      window.open(
-        "https://wa.me/919993182219?text=New%20Loan%20Inquiry%20Received%20from%20Website",
-        "_blank"
-      );
-    })
-    .catch(err => {
-      alert("Something went wrong. Please try again.");
-      console.error(err);
-    });
-  });
-}
+form.addEventListener("submit", () => {
+  btn.innerText = "Submitting...";
+  btn.disabled = true;
+  btn.style.opacity = "0.7";
+});
 </script>
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbzBoKKY6PsmCZ9n9RO6QtjYGVqLucy58wa6WqWsLOcmqBFk6J6l1n49UpsjAl5QWhNZ/exec";
-const form = document.getElementById("loanForm");
-
-form.addEventListener("submit", e => {
-  e.preventDefault(); // 🔥 MOST IMPORTANT
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(form)
-  })
-  .then(res => res.text())
-  .then(data => {
-    alert("Form submitted successfully");
-    form.reset();
-  })
-  .catch(err => {
-    alert("Error: " + err.message);
-  });
-});
+setTimeout(()=>{
+  window.open(
+    "https://wa.me/919993182219?text=New%20Loan%20Inquiry",
+    "_blank"
+  );
+},1500);
 </script>
 </body>
 </html>
