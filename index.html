@@ -292,17 +292,7 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
 function sendWhatsApp(type){
   window.open("https://wa.me/919993182219?text=Hello, I want "+type,"_blank");
 }
-function sendLoanForm(){
-  const msg=`NEW LOAN INQUIRY
-Name: ${name.value}
-Mobile: ${mobile.value}
-Email: ${email.value}
-Employment: ${employment.value}
-Loan: ${loanType.value}
-Amount: ${amount.value}
-Documents uploaded`;
-  window.open("https://wa.me/919993182219?text="+encodeURIComponent(msg),"_blank");
-}
+
 </script>
 
 </body>
