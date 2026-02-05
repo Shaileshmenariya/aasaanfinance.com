@@ -179,34 +179,70 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
   <h2>Loan Inquiry Form</h2>
 
   <form 
-    action="https://formspree.io/f/YOUR_FORM_ID" 
+    action="" 
     method="POST">
 
-    <input type="text" name="name" placeholder="Full Name *" required>
-    <input type="tel" name="mobile" placeholder="Mobile *" required>
-    <input type="email" name="email" placeholder="Email">
-    <input type="text" name="pincode" placeholder="Pincode *" required>
+    <h3>Basic Details</h3>
+    <input id="name" placeholder="Full Name *" required>
+    <input id="mobile" placeholder="Mobile *" required>
+    <input id="email" type="email" placeholder="Email *" required>
+    <input id="pincode" placeholder="Pincode *" required>
 
-    <select name="employment" required>
-      <option value="">Employment Type</option>
+    <select id="employment" required>
+      <option value="">Employment Type *</option>
       <option>Salaried</option>
       <option>Self Employed</option>
+      <option>Business</option>
+      <option>Other</option>
     </select>
 
-    <select name="loan" required>
-      <option value="">Loan Type</option>
+    <h3>KYC</h3>
+    <input type="file" accept="image/*,application/pdf" required>
+    <input type="file" accept="image/*,application/pdf" required>
+
+    <select id="ckyc" required>
+      <option value="">Do you have CKYC? *</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <h3>Personal</h3>
+    <input id="dob" type="date" required>
+    <input id="ageY" placeholder="Age (Years) *" required>
+    <input id="ageM" placeholder="Age (Months) *" required>
+
+    <select id="gender" required>
+      <option value="">Gender *</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <select id="religion" required>
+      <option value="">Religion *</option>
+      <option>Hindu</option>
+      <option>Muslim</option>
+      <option>Sikh</option>
+      <option>Christian</option>
+      <option>Other</option>
+    </select>
+
+    <h3>Loan Details</h3>
+    <select id="loanType" required>
+      <option value="">Loan Type *</option>
+      <option>Home Loan</option>
       <option>Personal Loan</option>
       <option>Business Loan</option>
-      <option>Home Loan</option>
+      <option>Car Loan</option>
+      <option>Mortgage Loan</option>
+      <option>OD/CC Limit</option>
+      <option>Kcc loan</option>
     </select>
 
-    <input type="number" name="amount" placeholder="Loan Amount *" required>
-    <textarea name="message" placeholder="Extra Message"></textarea>
+    <input id="amount" placeholder="Required Amount *" required>
+    <textarea id="extra" placeholder="Other details (optional)"></textarea>
 
-    <!-- 🔴 IMPORTANT -->
-    <input type="hidden" name="_redirect" value="thankyou.html">
-
-    <button type="submit">Submit</button>
+    <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
   
@@ -228,7 +264,7 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
   <h2>Our Office Location</h2>
 
   <iframe
-    src="https://www.google.com/maps?q=YOUR+OFFICE+ADDRESS&output=embed"
+    src="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw"
     width="100%"
     height="350"
     style="border:0;"
