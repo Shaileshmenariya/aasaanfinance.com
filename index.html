@@ -175,10 +175,13 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
   </div>
 </section>
 
-  <section class="section" id="form">
+<section class="section" id="form">
   <h2>Loan Inquiry Form</h2>
 
-  <form id="loanForm" class="loan-form">
+  <form 
+    action="https://formspree.io/f/YOUR_FORM_ID" 
+    method="POST">
+
     <input type="text" name="name" placeholder="Full Name *" required>
     <input type="tel" name="mobile" placeholder="Mobile *" required>
     <input type="email" name="email" placeholder="Email">
@@ -198,21 +201,15 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
     </select>
 
     <input type="number" name="amount" placeholder="Loan Amount *" required>
-    <textarea name="extra" placeholder="Extra Message"></textarea>
+    <textarea name="message" placeholder="Extra Message"></textarea>
+
+    <!-- 🔴 IMPORTANT -->
+    <input type="hidden" name="_redirect" value="thankyou.html">
 
     <button type="submit">Submit</button>
   </form>
-
-  <!-- THANK YOU -->
-  <div id="thankyou" style="display:none;">
-    <h3>Thank You 🙏</h3>
-    <p>We will contact you shortly.</p>
-
-    <a href="https://maps.google.com/?q=YOUR+OFFICE+ADDRESS" target="_blank">
-      📍 Visit Our Office
-    </a>
-  </div>
-</section>
+</section>  
+  
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
