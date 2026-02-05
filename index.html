@@ -202,6 +202,7 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     class="loan-form"
     action="https://formspree.io/f/xdalnzzq"
     method="POST"
+    onsubmit="afterSubmit()"
   >
 
     <!-- Thank You Redirect -->
@@ -321,6 +322,25 @@ function sendWhatsApp(type){
 }
 
 </script>
+<script>
+function afterSubmit() {
 
+  // 2 second baad Thank You page
+  setTimeout(function () {
+    window.location.href = "thankyou.html";
+  }, 2000);
+
+  // OPTIONAL: WhatsApp bhi open karna ho to
+  setTimeout(function () {
+    window.open(
+      "https://wa.me/919993182219?text=Hello%20AASAAN%20FINANCE,%20I%20have%20submitted%20a%20loan%20inquiry",
+      "_blank"
+    );
+  }, 2500);
+
+  // form submit hone do
+  return true;
+}
+</script>
 </body>
 </html>
