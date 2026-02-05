@@ -197,13 +197,12 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
 <!-- ================= LOAN FORM ================= -->
 <section class="section" id="form">
   <h2>Loan Inquiry Form</h2>
-
-  <form
-    class="loan-form"
-    action="https://formspree.io/f/xdalnzzq"
-    method="POST"
-    onsubmit="afterSubmit()"
-  >
+<form
+  class="loan-form"
+  action="https://formspree.io/f/xykprozr"
+  method="POST"
+>
+  <input type="hidden" name="_redirect" value="thankyou.html">
 
     <!-- Thank You Redirect -->
     <input type="hidden" name="_redirect" value="thankyou.html">
@@ -315,7 +314,40 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
 </footer>
 
 <a class="whatsapp-float" href="https://wa.me/919993182219" target="_blank">💬</a>
+<script>
+document.getElementById("loanForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // page reload roko
 
+  const form = e.target;
+  const formData = new FormData(form);
+
+  // Formspree URL
+  fetch("https://formspree.io/f/xykprozr", {
+    method: "POST",
+    body: formData,
+    headers: {
+      "Accept": "application/json"
+    }
+  })
+  .then(() => {
+    // 2 second baad thank you page
+    setTimeout(() => {
+      window.location.href = "thankyou.html";
+    }, 2000);
+
+    // optional WhatsApp
+    setTimeout(() => {
+      window.open(
+        "https://wa.me/919993182219?text=Hello%20AASAAN%20FINANCE,%20I%20have%20submitted%20a%20loan%20inquiry",
+        "_blank"
+      );
+    }, 2500);
+  })
+  .catch(() => {
+    alert("Submission failed. Please try again.");
+  });
+});
+</script>
 <script>
 function sendWhatsApp(type){
   window.open("https://wa.me/919993182219?text=Hello, I want "+type,"_blank");
