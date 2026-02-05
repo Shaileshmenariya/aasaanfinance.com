@@ -314,6 +314,26 @@ if(form){
   });
 }
 </script>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzBoKKY6PsmCZ9n9RO6QtjYGVqLucy58wa6WqWsLOcmqBFk6J6l1n49UpsjAl5QWhNZ/exec";
+const form = document.getElementById("loanForm");
 
+form.addEventListener("submit", e => {
+  e.preventDefault(); // 🔥 MOST IMPORTANT
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert("Form submitted successfully");
+    form.reset();
+  })
+  .catch(err => {
+    alert("Error: " + err.message);
+  });
+});
+</script>
 </body>
 </html>
