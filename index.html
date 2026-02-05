@@ -6,10 +6,10 @@
 <title>AASAAN FINANCE | Smart Loan Solutions</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#0b1224;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+body{background:#0b1224;color:#fff;}
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
   background:#0f1c3f;
   padding:14px 26px;
@@ -20,64 +20,66 @@ header{
   top:0;
   z-index:100;
 }
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{width:42px;height:42px;border-radius:50%}
-.logo span{font-size:20px;font-weight:700}
-nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
-.apply-btn{
-  background:#22c55e;color:#000;
-  padding:10px 18px;border-radius:8px;
-  font-weight:600;cursor:pointer
-}
-@media(max-width:768px){nav,.apply-btn{display:none}}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{width:42px;height:42px;border-radius:50%;}
+.logo span{font-size:20px;font-weight:700;}
+nav{display:flex;gap:22px;}
+nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
+.apply-btn{background:#22c55e;color:#000;padding:10px 18px;border-radius:8px;font-weight:600;cursor:pointer;}
+@media(max-width:768px){nav,.apply-btn{display:none;}}
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
   padding:90px 20px;
   background:linear-gradient(135deg,#101b3a,#1c3d70);
 }
-.hero-content{max-width:1200px;margin:auto}
-.hero h1{font-size:42px}
-.hero h1 span{color:#22c55e}
-.hero p{color:#d0d8ff;margin:18px 0 26px}
-.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
-.hero-buttons button,
-.hero-buttons a{
-  padding:14px 26px;
-  border-radius:10px;
-  font-weight:600;
-  text-decoration:none;
+.hero-content{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
 }
+.hero h1{font-size:42px;}
+.hero h1 span{color:#22c55e;}
+.hero p{color:#d0d8ff;margin:20px 0;}
+.hero-buttons{display:flex;gap:18px;flex-wrap:wrap;}
 .hero-buttons button{
-  border:none;background:#22c55e;cursor:pointer
+  padding:14px 26px;border:none;border-radius:10px;
+  background:#22c55e;font-weight:600;cursor:pointer;
 }
 .hero-buttons a{
-  border:2px solid #22c55e;color:#fff
+  padding:14px 26px;border:2px solid #22c55e;
+  border-radius:10px;color:#fff;text-decoration:none;
+}
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;text-align:center;}
 }
 
-/* SECTIONS */
-.section{padding:80px 20px}
-.section h2{text-align:center;font-size:32px;margin-bottom:40px}
-
-/* LOANS */
+/* ================= LOANS ================= */
+.section{padding:80px 20px;}
+.section h2{text-align:center;font-size:32px;margin-bottom:40px;}
 .loan-grid{
-  max-width:1200px;margin:auto;
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:26px
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
 }
 .loan-card{
   background:#162447;
-  padding:30px;border-radius:16px
+  padding:30px;
+  border-radius:16px;
 }
-.loan-card p{color:#b9c4ff;margin:10px 0 18px}
+.loan-card p{color:#b9c4ff;margin:10px 0 18px;}
 .loan-card button{
   padding:10px 18px;border:none;border-radius:8px;
-  background:#22c55e;font-weight:600;cursor:pointer
+  background:#22c55e;font-weight:600;cursor:pointer;
 }
-@media(max-width:992px){.loan-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.loan-grid{grid-template-columns:1fr}}
+@media(max-width:992px){.loan-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.loan-grid{grid-template-columns:1fr;}}
 
-/* ===== FORM ===== */
+/* ================= FORM ================= */
 .loan-form{
   max-width:900px;
   margin:auto;
@@ -85,63 +87,51 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
   padding:30px;
   border-radius:16px;
 }
-
-.loan-form h3{
-  margin:25px 0 10px;
-  color:#22c55e;
-}
-
+.loan-form h3{margin:25px 0 10px;color:#22c55e;}
 .loan-form input,
 .loan-form select,
 .loan-form textarea{
   width:100%;
   padding:12px;
-  margin-bottom:14px;
+  margin-bottom:12px;
   border-radius:8px;
   border:none;
-  outline:none;
-  font-size:15px;
 }
-
-.loan-form textarea{
-  resize:none;
-  height:90px;
-}
-
-/* ===== SUBMIT BUTTON ===== */
+.loan-form textarea{resize:none;height:90px;}
 .loan-form button{
   width:100%;
   padding:14px;
   background:#22c55e;
-  color:#000;
   border:none;
   border-radius:10px;
-  font-size:16px;
   font-weight:700;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.loan-form button:hover{
-  background:#16a34a;
+/* ================= FOOTER ================= */
+.footer{background:#0b1535;padding:60px 20px;}
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+.footer p,.footer a{color:#cbd6f5;font-size:14px;text-decoration:none;}
+.footer-bottom{text-align:center;margin-top:40px;font-size:13px;color:#9fb0ff;}
+@media(max-width:992px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;text-align:center;}}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-float{
+  position:fixed;right:18px;bottom:18px;
+  width:58px;height:58px;
+  background:#25d366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;color:#fff;text-decoration:none;
 }
 
-.loan-form button:disabled{
-  background:#94a3b8;
-  cursor:not-allowed;
-}
-/* THANK YOU */
-.thankyou-box{
-  display:none;text-align:center;
-  padding:60px 20px;
-  animation:fade .6s ease-in-out
-}
-@keyframes fade{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-  .map-section{
+.map-section{
   padding:60px 20px;
   background:#0f1c3f;
 }
@@ -154,35 +144,8 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 .map-section iframe{
   width:100%;
   height:320px;
-  border-radius:16px;
   border:0;
-}
-.thankyou-box a{
-  display:inline-block;margin-top:20px;
-  padding:12px 22px;background:#22c55e;
-  color:#000;border-radius:8px;
-  text-decoration:none;font-weight:600
-}
-
-/* FOOTER */
-.footer{background:#0b1535;padding:60px 20px}
-.footer-grid{
-  max-width:1200px;margin:auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:30px
-}
-.footer p{color:#cbd6f5;font-size:14px}
-.footer-bottom{text-align:center;margin-top:40px;font-size:13px;color:#9fb0ff}
-@media(max-width:992px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr;text-align:center}}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float{
-  position:fixed;right:18px;bottom:18px;
-  width:58px;height:58px;
-  background:#25d366;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:30px;color:#fff;text-decoration:none
+  border-radius:16px;
 }
 </style>
 </head>
@@ -200,16 +163,18 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
     <a href="#form">Inquiry</a>
     <a href="#contact">Contact</a>
   </nav>
-  <div class="apply-btn" onclick="sendWhatsApp('Loan Inquiry')">Apply Now</div>
+  <div class="apply-btn" onclick="sendWhatsApp('General Loan')">Apply Now</div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Fast & Easy <span>Loans</span><br>For Every Need</h1>
-    <p>Home, Personal, Business & Mortgage loans with quick approval.</p>
-    <div class="hero-buttons">
-      <button onclick="sendWhatsApp('Loan Application')">Apply Now</button>
-      <a href="tel:+919993182219">Call Us</a>
+    <div>
+      <h1>Fast & Easy <span>Loans</span><br>For Every Need</h1>
+      <p>Home, Personal, Business & Mortgage loans with quick approval.</p>
+      <div class="hero-buttons">
+        <button onclick="sendWhatsApp('Loan Application')">Apply Now</button>
+        <a href="tel:+919993182219">Call Us</a>
+      </div>
     </div>
   </div>
 </section>
@@ -217,21 +182,22 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 <section class="section" id="loans">
   <h2>Our Loan Services</h2>
   <div class="loan-grid">
-    <div class="loan-card"><h3>Home Loan</h3><p>Housing finance</p></div>
-    <div class="loan-card"><h3>Personal Loan</h3><p>Quick EMI</p></div>
-    <div class="loan-card"><h3>Car Loan</h3><p>Vehicle loan</p></div>
-    <div class="loan-card"><h3>Business Loan</h3><p>Grow business</p></div>
-    <div class="loan-card"><h3>Mortgage Loan</h3><p>Property loan</p></div>
-    <div class="loan-card"><h3>OD / CC</h3><p>Limit finance</p></div>
+    <div class="loan-card"><h3>Home Loan</h3><p>Housing finance</p><button onclick="sendWhatsApp('Home Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Personal Loan</h3><p>Quick EMI</p><button onclick="sendWhatsApp('Personal Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Car Loan</h3><p>Vehicle loan</p><button onclick="sendWhatsApp('Car Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Business Loan</h3><p>Grow business</p><button onclick="sendWhatsApp('Business Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Mortgage Loan</h3><p>Property loan</p><button onclick="sendWhatsApp('Mortgage Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Commercial Loan</h3><p>Shop & Office</p><button onclick="sendWhatsApp('Commercial Loan')">Apply</button></div>
+    <div class="loan-card"><h3>Kcc loan</h3><p>Shop & Office</p><button onclick="sendWhatsApp('Commercial Loan')">Apply</button></div>
+    <div class="loan-card"><h3>OD/CC Limit</h3><p>Shop & Office</p><button onclick="sendWhatsApp('Commercial Loan')">Apply</button></div>
   </div>
 </section>
 
+<!-- ================= LOAN FORM ================= -->
 <section class="section" id="form">
   <h2>Loan Inquiry Form</h2>
 
-  <form 
-    action="" 
-    method="POST">
+  <form class="loan-form" onsubmit="sendLoanForm();return false;">
 
     <h3>Basic Details</h3>
     <input id="name" placeholder="Full Name *" required>
@@ -295,61 +261,46 @@ nav a{color:#cdd6f5;text-decoration:none;margin:0 12px;font-size:15px}
 
     <button type="submit">Submit Inquiry</button>
   </form>
-</section>  
-  <div class="thankyou-box">
-  <h1>Thank You 🙏</h1>
-  <p>Your inquiry has been submitted successfully.</p>
+</section>
 
-  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">
-    📍 Visit Our Office
-  </a><br>
-
-  <a href="index.html">⬅ Back to Home</a>
-</div>
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
+    <div><h3>Loans</h3><p>Home • Personal • Business • Mortgage</p></div>
     <div><h3>Contact</h3><p>📞 +91 99931 82219</p></div>
     <div><h3>Location</h3><p>📍 Ratlam, MP</p></div>
-    <div>
-      <iframe src="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw"
-        width="100%" height="200"
-        style="border:0;border-radius:12px"
-        loading="lazy"></iframe>
-    </div>
   </div>
   <div class="footer-bottom">© 2026 AASAAN FINANCE</div>
-</footer>
-<section class="section">
+
+  <section class="map-section">
   <h2>Our Office Location</h2>
 
   <iframe
-    src="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw"
-    width="100%"
-    height="350"
-    style="border:0;"
-    loading="lazy">
+    src="https://www.google.com/maps?q=Ratlam+Madhya+Pradesh&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 </section>
+</footer>
+
 <a class="whatsapp-float" href="https://wa.me/919993182219" target="_blank">💬</a>
 
 <script>
-const form = document.getElementById("loanForm");
-const btn = document.getElementById("submitBtn");
+function sendWhatsApp(type){
+  window.open("https://wa.me/919993182219?text=Hello, I want "+type,"_blank");
+}
+function sendLoanForm(){
+  const msg=`NEW LOAN INQUIRY
+Name: ${name.value}
+Mobile: ${mobile.value}
+Email: ${email.value}
+Employment: ${employment.value}
+Loan: ${loanType.value}
+Amount: ${amount.value}
+Documents uploaded`;
+  window.open("https://wa.me/919993182219?text="+encodeURIComponent(msg),"_blank");
+}
+</script>
 
-form.addEventListener("submit", () => {
-  btn.innerText = "Submitting...";
-  btn.disabled = true;
-  btn.style.opacity = "0.7";
-});
-</script>
-<script>
-setTimeout(()=>{
-  window.open(
-    "https://wa.me/919993182219?text=New%20Loan%20Inquiry",
-    "_blank"
-  );
-},1500);
-</script>
 </body>
 </html>
