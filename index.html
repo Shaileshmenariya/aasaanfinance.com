@@ -108,7 +108,45 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
   font-weight:700;
   cursor:pointer;
 }
-
+/* ================= REVIEW SUBMIT ================= */
+.review-submit{
+  padding:80px 20px;
+  background:#0f1c3f;
+}
+.review-box{
+  max-width:700px;
+  margin:auto;
+  background:#162447;
+  padding:30px;
+  border-radius:16px;
+}
+.review-box input,
+.review-box textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border:none;
+  border-radius:8px;
+}
+.review-box textarea{
+  height:100px;
+  resize:none;
+}
+.review-box button{
+  width:100%;
+  padding:14px;
+  background:#22c55e;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.review-note{
+  margin-top:12px;
+  font-size:13px;
+  color:#9fb0ff;
+  text-align:center;
+}
 /* ================= FOOTER ================= */
 .footer{background:#0b1535;padding:60px 20px;}
 .footer-grid{
@@ -294,7 +332,40 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
+<section class="review-submit" id="review">
+  <h2 style="text-align:center;margin-bottom:30px;">
+    Share Your Experience
+  </h2>
 
+  <form
+    class="review-box"
+    action="https://formspree.io/f/xdalnzzq"
+    method="POST"
+  >
+    <input
+      name="name"
+      placeholder="Your Name *"
+      required
+    >
+
+    <input
+      name="mobile"
+      placeholder="Mobile Number (optional)"
+    >
+
+    <textarea
+      name="review"
+      placeholder="Write your review about AASAAN FINANCE *"
+      required
+    ></textarea>
+
+    <button type="submit">Submit Review</button>
+
+    <div class="review-note">
+      * Reviews are published after verification for authenticity.
+    </div>
+  </form>
+</section>
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
