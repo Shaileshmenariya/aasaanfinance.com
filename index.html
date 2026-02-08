@@ -108,44 +108,27 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
   font-weight:700;
   cursor:pointer;
 }
-/* ================= REVIEW SUBMIT ================= */
-.review-submit{
+.review-section{
   padding:80px 20px;
-  background:#0f1c3f;
 }
-.review-box{
-  max-width:700px;
+.review-grid{
+  max-width:1100px;
   margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+.review-card{
   background:#162447;
-  padding:30px;
+  padding:26px;
   border-radius:16px;
 }
-.review-box input,
-.review-box textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:14px;
-  border:none;
-  border-radius:8px;
+.review-card h4{
+  margin-top:10px;
+  color:#22c55e;
 }
-.review-box textarea{
-  height:100px;
-  resize:none;
-}
-.review-box button{
-  width:100%;
-  padding:14px;
-  background:#22c55e;
-  border:none;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
-}
-.review-note{
-  margin-top:12px;
-  font-size:13px;
-  color:#9fb0ff;
-  text-align:center;
+@media(max-width:768px){
+  .review-grid{grid-template-columns:1fr;}
 }
 /* ================= FOOTER ================= */
 .footer{background:#0b1535;padding:60px 20px;}
@@ -332,39 +315,9 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
-<section class="review-submit" id="review">
-  <h2 style="text-align:center;margin-bottom:30px;">
-    Share Your Experience
-  </h2>
-
-  <form
-    class="review-box"
-    action="https://formspree.io/f/xdalnzzq"
-    method="POST"
-  >
-    <input
-      name="name"
-      placeholder="Your Name *"
-      required
-    >
-
-    <input
-      name="mobile"
-      placeholder="Mobile Number (optional)"
-    >
-
-    <textarea
-      name="review"
-      placeholder="Write your review about AASAAN FINANCE *"
-      required
-    ></textarea>
-
-    <button type="submit">Submit Review</button>
-
-    <div class="review-note">
-      * Reviews are published after verification for authenticity.
-    </div>
-  </form>
+<section class="review-section">
+  <h2>Customer Reviews</h2>
+  <div class="review-grid" id="reviewGrid"></div>
 </section>
 <footer class="footer" id="contact">
   <div class="footer-grid">
@@ -426,6 +379,23 @@ function sendWhatsApp(type){
   window.open("https://wa.me/919244620331?text=Hello, I want "+type,"_blank");
 }
 
+</script>
+  <script>
+fetch("https://script.google.com/macros/s/AKfycbwJiEMrVd2tAAMNDUkQO-dt42fuJVnlfa5lCoGEEEsLkAu14Ecev6ak-bnexU29WW3MRA/exec")
+.then(res => res.json())
+.then(data => {
+  const grid = document.getElementById("reviewGrid");
+
+  data.forEach(r => {
+    grid.innerHTML += `
+      <div class="review-card">
+        <p>${r.review}</p>
+        <h4>${r.name}</h4>
+        <span>${r.rating || ""}</span>
+      </div>
+    `;
+  });
+});
 </script>
 <script>
 function afterSubmit() {
