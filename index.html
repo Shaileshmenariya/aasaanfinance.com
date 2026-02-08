@@ -108,7 +108,70 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
   font-weight:700;
   cursor:pointer;
 }
+/* ================= PROCESS ================= */
+.process-section{
+  padding:80px 20px;
+  background:#0f1c3f;
+}
+.process-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+.process-box{
+  background:#162447;
+  padding:30px;
+  border-radius:16px;
+  text-align:center;
+}
+.process-box span{
+  font-size:38px;
+}
+.process-box h3{
+  margin:15px 0 10px;
+  color:#22c55e;
+}
+.process-box p{
+  color:#cbd6f5;
+  font-size:14px;
+}
+@media(max-width:768px){
+  .process-grid{grid-template-columns:1fr;}
+}
 
+/* ================= REVIEWS ================= */
+.review-section{
+  padding:80px 20px;
+}
+.review-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+.review-card{
+  background:#162447;
+  padding:26px;
+  border-radius:16px;
+}
+.review-card p{
+  font-size:14px;
+  color:#cbd6f5;
+}
+.review-card h4{
+  margin-top:14px;
+  color:#22c55e;
+}
+.review-card span{
+  font-size:13px;
+  color:#9fb0ff;
+}
+@media(max-width:768px){
+  .review-grid{grid-template-columns:1fr;}
+}
 /* ================= FOOTER ================= */
 .footer{background:#0b1535;padding:60px 20px;}
 .footer-grid{
@@ -294,6 +357,26 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
+  <section class="process-section">
+  <h2>How Our Loan System Works</h2>
+  <div class="process-grid">
+    <div class="process-box">
+      <span>📝</span>
+      <h3>Apply Online</h3>
+      <p>Fill the simple inquiry form with basic details.</p>
+    </div>
+    <div class="process-box">
+      <span>📞</span>
+      <h3>Verification</h3>
+      <p>Our team calls you for document & eligibility check.</p>
+    </div>
+    <div class="process-box">
+      <span>💰</span>
+      <h3>Loan Disbursed</h3>
+      <p>Quick approval & fast loan disbursal.</p>
+    </div>
+  </div>
+</section>
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
