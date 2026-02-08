@@ -108,28 +108,7 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
   font-weight:700;
   cursor:pointer;
 }
-.review-section{
-  padding:80px 20px;
-}
-.review-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:26px;
-}
-.review-card{
-  background:#162447;
-  padding:26px;
-  border-radius:16px;
-}
-.review-card h4{
-  margin-top:10px;
-  color:#22c55e;
-}
-@media(max-width:768px){
-  .review-grid{grid-template-columns:1fr;}
-}
+
 /* ================= FOOTER ================= */
 .footer{background:#0b1535;padding:60px 20px;}
 .footer-grid{
@@ -315,48 +294,6 @@ nav a{color:#cdd6f5;text-decoration:none;font-size:15px;}
     <button type="submit">Submit Inquiry</button>
   </form>
 </section>  
-<section class="review-section">
-  <h2>Customer Reviews</h2>
-  <div class="review-grid" id="reviewGrid"></div>
-  <div style="text-align:center;margin:20px 0;">
-  <a href="#give-review" 
-     style="background:#22c55e;color:#000;
-            padding:12px 24px;
-            border-radius:10px;
-            font-weight:600;
-            text-decoration:none;">
-    ⭐ Give Your Review
-  </a>
-</div>
-  <section id="give-review" style="padding:60px 20px;">
-  <h2 style="text-align:center;margin-bottom:20px;">
-    Submit Your Review
-  </h2>
-
-  <form class="review-box"
-        action="https://formspree.io/f/xdalnzzq"
-        method="POST">
-
-    <input name="name" placeholder="Your Name *" required>
-
-    <select name="rating" required>
-      <option value="">Rating *</option>
-      <option>⭐⭐⭐⭐⭐</option>
-      <option>⭐⭐⭐⭐</option>
-      <option>⭐⭐⭐</option>
-      <option>⭐⭐</option>
-      <option>⭐</option>
-    </select>
-
-    <textarea name="review"
-      placeholder="Write your review here *"
-      required></textarea>
-
-    <button type="submit">Submit Review</button>
-  </form>
-</section>
-  <div class="review-grid" id="reviewGrid"></div>
-</section>
 <footer class="footer" id="contact">
   <div class="footer-grid">
     <div><h3>AASAAN FINANCE</h3><p>Your trusted loan partner</p></div>
