@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AASAAN FINANCE | Loan Enquiry</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  background:#0b1224;
+  color:#fff;
+}
+.container{
+  max-width:520px;
+  margin:30px auto;
+  background:#111936;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+h2{
+  text-align:center;
+  margin-bottom:18px;
+}
+.loan-form label{
+  font-size:14px;
+  margin-top:10px;
+  display:block;
+}
+.loan-form input,
+.loan-form select{
+  width:100%;
+  padding:11px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  margin-top:6px;
+}
+.loan-form input[type="file"]{
+  background:#fff;
+}
+.loan-form button{
+  width:100%;
+  margin-top:18px;
+  padding:13px;
+  background:#22c55e;
+  color:#000;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+}
+.loan-form button:hover{
+  opacity:.9;
+}
+
+/* THANK YOU SCREEN */
+#thankyou{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0b1224;
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+#thankyou h1{
+  color:#22c55e;
+  font-size:36px;
+}
+#thankyou p{
+  margin-top:10px;
+  color:#cbd6f5;
+}
+#thankyou a{
+  margin-top:20px;
+  padding:12px 22px;
+  background:#22c55e;
+  color:#000;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+}
+.map{
+  margin:30px auto;
+  max-width:520px;
+}
+.map iframe{
+  width:100%;
+  height:300px;
+  border-radius:14px;
+  border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Loan Enquiry Form</h2>
+
+  <form id="loanForm" class="loan-form"
+  action="https://script.google.com/macros/s/AKfycbzBoKKY6PsmCZ9n9RO6QtjYGVqLucy58wa6WqWsLOcmqBFk6J6l1n49UpsjAl5QWhNZ/exec"
+  method="POST">
+
+    <label>Name *</label>
+    <input type="text" name="Name" required>
+
+    <label>Mobile *</label>
+    <input type="tel" name="Mobile" required>
+
+    <label>Email</label>
+    <input type="email" name="Email">
+
+    <label>Pincode *</label>
+    <input type="number" name="Pincode" required>
+
+    <label>Employment Type *</label>
+    <select name="Employment" required>
+      <option value="">Select</option>
+      <option>Salaried</option>
+      <option>Self Employed</option>
+      <option>Business</option>
+    </select>
+
+    <label>Monthly Income *</label>
+    <input type="number" name="Income" required>
+
+    <label>Upload Document</label>
+    <input type="file" name="Document">
+
+    <button type="submit">Submit Enquiry</button>
+  </form>
+</div>
+
+<!-- THANK YOU -->
+<div id="thankyou">
+  <h1>🎉 Thank You!</h1>
+  <p>
+    AASAAN FINANCE me enquiry ke liye dhanyavaad.<br>
+    Hum jald hi aapse contact karenge.
+  </p>
+  <a href="https://maps.app.goo.gl/M61wkyrCEom8DUdQ7?g_st=aw" target="_blank">
+    Visit Our Office 📍
+  </a>
+</div>
+
+<!-- MAP AT LAST -->
+<div class="map">
+  <iframe
+    src="https://www.google.com/maps?q=AASAAN%20FINANCE&output=embed">
+  </iframe>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+document.getElementById("loanForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const form = this;
+  const data = new FormData(form);
+
+  fetch(form.action,{
+    method:"POST",
+    body:data
+  }).then(()=>{
+    form.style.display="none";
+    document.getElementById("thankyou").style.display="flex";
+
+    confetti({
+      particleCount:180,
+      spread:90,
+      origin:{y:0.6}
+    });
+
+    const name = data.get("Name") || "";
+    const mobile = data.get("Mobile") || "";
+
+    if(mobile.length>=10){
+      const msg =
+`Hello ${name},
+AASAAN FINANCE me enquiry ke liye dhanyavaad.
+Hum jald hi aapse contact karenge.`;
+
+      const wa =
+      "https://wa.me/919993182219?text="+encodeURIComponent(msg);
+
+      setTimeout(()=>{
+        window.open(wa,"_blank");
+      },1500);
+    }
+  }).catch(()=>{
+    alert("Submission failed");
+  });
+});
+</script>
+
+</body>
+</html>
